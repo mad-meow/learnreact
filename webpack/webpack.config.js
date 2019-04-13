@@ -1,4 +1,5 @@
 const path = require('path');
+const webpack = require('webpack');
 
 module.exports = {
     mode: 'development',
@@ -11,8 +12,13 @@ module.exports = {
         extensions: ['.js', '.jsx', '.css']
     },
     devServer: {
-        contentBase: '../dist'
+        contentBase: path.resolve(__dirname, '../dist'),
+        hot: true,
+        open: true
     },
+    plugins: [
+        new webpack.HotModuleReplacementPlugin()
+    ],
     module: {
         rules: [
             {

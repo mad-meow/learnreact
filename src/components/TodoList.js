@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Todo from './Todo';
 
-const TodoList = ({ todos, toggleTodo }) => {
+const TodoList = ({ todos, toggleTodo }) => (
     <ul>
         { 
             todos.map(todo => {
@@ -10,7 +10,7 @@ const TodoList = ({ todos, toggleTodo }) => {
             })
         }
     </ul>
-}
+)
 
 TodoList.propTypes = {
     todos: PropTypes.arrayOf(
@@ -20,7 +20,7 @@ TodoList.propTypes = {
             text: PropTypes.string.isRequired
         }).isRequired
     ).isRequired,
-    toggleTodo: PropTypes.func.isRequired
+    toggleTodo: PropTypes.func
 };
 
 export default TodoList;
